@@ -1,15 +1,19 @@
-import { useState } from "react";
+import Header from './components/Header';
+
+// Above, we import the Header compoment.
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <div>
-      <p className="hello">Hello</p>
+      <Header/>
+       
     </div>
   );
 
-  // Above, I test if my react file and custom css is working.
+  // Above, we add our Header to our App 
 }
 
 export default App;
+
+// Above, we export our app

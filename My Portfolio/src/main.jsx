@@ -14,3 +14,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 )
+
+//Above, we place our App containing all of our components in our ReactDom.
