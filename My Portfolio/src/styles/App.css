@@ -34,7 +34,51 @@
   color: yellow;
 }
 
+.highlight {
+  color: yellow;
+}
+
+.highlightNone {
+  color: white;
+}
+
 /* end of header and nav css */
+
+.ava {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  margin-top: 15px;
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+
+.aboutMe {
+  margin-top: 50px;
+  text-decoration: underline;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bio2 {
+  margin-top: 30px;
+}
+
+.black {
+  min-height: 100vh;
+  background-color: rgb(233, 230, 230);
+}
+
+/* end of About me css*/
 
 @media (min-width: 600px) {
   .links {
