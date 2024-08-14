@@ -3,6 +3,9 @@ import { Outlet } from "react-router-dom";
 // Above, we import the Header compoment.
 // Also, we import our outlet compnent for our react router
 
+
+
+
 function App() {
   return (
     <div>
@@ -10,6 +13,7 @@ function App() {
       <main>
         <Outlet />
       </main>
+      
     </div>
   );
 

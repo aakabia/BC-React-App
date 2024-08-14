@@ -19,7 +19,16 @@ function Navbar(props) {
         </Link>
       </h6>
 
-      <h6 className="link">Portfolio</h6>
+      <h6 className="link">
+        <Link
+          to="/projects"
+          className={
+            currentPage === "/projects" ? "highlight" : "highlightNone"
+          }
+        >
+          Portfolio
+        </Link>
+      </h6>
       <h6 className="link">Contact</h6>
       <h6 className="link">Resume</h6>
     </nav>
