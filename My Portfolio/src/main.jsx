@@ -18,6 +18,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 
 import About from './pages/About.jsx';
+import Projects from './pages/Projects.jsx';
 import Error from './pages/Error.jsx';
 
 // Above, is our imported pages
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
         index: true,
         element: <About />,
       },
+
+      {
+        path: '/projects',
+        element: <Projects/>,
+      },
   
     ],
   },
@@ -43,7 +49,7 @@ const router = createBrowserRouter([
 
 // Above, we create a a new browser router and set the starting path to "/".
 // We set the source of our router to our App.jsx and our error element to our error page.
-// Last, we define the children for our router starting at our About Me page.
+// Last, we define the children for our router starting at our About Me page. Each path goes to associated page!
 
 
 
