@@ -19,7 +19,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import About from './pages/About.jsx';
 import Projects from './pages/Projects.jsx';
+import Contact from './pages/Contact.jsx';
 import Error from './pages/Error.jsx';
+
 
 // Above, is our imported pages
 
@@ -42,6 +44,13 @@ const router = createBrowserRouter([
         path: '/projects',
         element: <Projects/>,
       },
+
+      {
+        path: '/contact',
+        element: <Contact/>,
+      },
+
+
   
     ],
   },
