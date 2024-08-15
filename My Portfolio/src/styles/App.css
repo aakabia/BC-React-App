@@ -125,6 +125,69 @@
 
 /* end of project css */
 
+
+.contactForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50px !important;
+  
+}
+
+.formSpace{
+  margin-top: 15px;
+}
+
+.formLabel{
+  font-weight: bolder;
+}
+
+.formInput{
+  border-radius: 20px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.button{
+  margin-top: 30px !important;
+  display: flex;
+  justify-content: center;
+  
+  
+}
+
+.formField:focus {
+  
+  outline: none; /* Optional: Removes the default blue outline */
+}
+
+.formSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tall{
+  height: 150px;
+}
+
+
+.notification-bubble{
+    color: red;
+}
+
+@media (min-width: 550px) {
+  .max{
+    max-width: 500px;
+  }
+
+  
+}
+
+
+
+
 @media (min-width: 576px) {
   .projectArea {
     display: flex;
