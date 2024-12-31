@@ -12,7 +12,7 @@ const RenderModel =({children,className})=>{
 
     return(
     
-        <Canvas className={clsx("w-screen h screen relative",className)}>
+        <Canvas className={clsx("w-screen h-screen relative",className)}>
 
             <Suspense fallback={null}>
                 {children}

@@ -3,6 +3,8 @@ import Image from "next/image";
 import bg from"../public/images/bgInspo.png"
 import RenderModel from "./components/RenderModel";
 import SpaceModel from "./components/models/space";
+import Navigation from "./components/navigation";
+
 
 
 
@@ -19,10 +21,12 @@ export default function Home() {
     />
 
     {/* use Render model and pass in space model as a child */}
-
+    
+    <Navigation/>
     <RenderModel>
       <SpaceModel/>
     </RenderModel>
+
 
 
 

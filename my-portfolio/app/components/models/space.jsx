@@ -13,7 +13,8 @@ export default function SpaceModel(props) {
   const modelRef = useRef() // to maintain model reference without re rendering.
   useFrame((state, delta, xrFrame) => {
     if (modelRef.current) {
-      modelRef.current.position.y = Math.sin(state.clock.elapsedTime); // Using dynamic model reference
+      modelRef.current.position.y = -.25 + Math.sin(state.clock.elapsedTime) * 0.15 // Using dynamic model reference
+      // note: look up sine wave oscillation to understand what is happening above.
     }
   })
 
@@ -22,7 +23,7 @@ export default function SpaceModel(props) {
 
   return (
     <group {...props} dispose={null} rotation={[0.25,.5,0]} ref={modelRef}>
-      <mesh geometry={nodes.Object_4.geometry} material={materials.Character_Texture} position={[0, -.5, -0.072]} scale={0.600} />
+      <mesh geometry={nodes.Object_4.geometry} material={materials.Character_Texture} position={[.5, -.5, -0.072]} scale={0.600} />
     </group>
   )
 
