@@ -10,7 +10,7 @@ const Navigation = () => {
 
   return (
   <div className=' fixed z-50 h-screen w-full flex items-center justify-center'> {/* set z index when position is fixed to prevent overlapping children*/}
-      <div className='flex items-center justify-between relative text-white '>
+      <div className='flex items-center justify-center relative text-white animate-spin-slow hover:pause group'>
       {BtnList.map((btn,index)=>{
         const angleRad = index*(angleIncrement*Math.PI)/180 // convert angle from degrees to radians for each btn
         const radius = 'calc(20vw - 1rem)' // set radius for positioning elements 
