@@ -23,7 +23,7 @@ export default function SpaceModel(props) {
 
   return (
     <group {...props} dispose={null} rotation={[0.25,.5,0]} ref={modelRef}>
-      <mesh geometry={nodes.Object_4.geometry} material={materials.Character_Texture} position={[.5, -.5, -0.072]} scale={0.600} />
+      <mesh geometry={nodes.Object_4.geometry} material={materials.Character_Texture} position={[.2, -.7, -0.072]} scale={0.600} />
     </group>
   )
 
