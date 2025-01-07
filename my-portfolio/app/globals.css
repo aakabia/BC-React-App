@@ -19,6 +19,18 @@
     }
 }
 
+/* above helps pause or nav bar*/
+
+
+@keyframes move{
+    0%{
+        transform:   translate(0,0) rotate(45deg);
+    }
+    100%{
+        transform:  translate(100px,100px) rotate(45deg) ;
+    }
+}
+/* Above helps move or space stars with key frames */
 
 
 

@@ -65,10 +65,11 @@ const NavButton = ({ x, y, label, link, newTab, icon }) => {
         aria-label={label}
       >
         <span className="relative w-14 h-14 p-4 animate-spin-slow-reverse group-hover:pause hover:text-accent ">{getIcon(icon)}
+          {/* Above group helps stop the spinning affect once a child or the parent is hovered */}
 
           <span className="peer bg-transparent absolute top-0 left-0 w-full h-full"></span>
-
-
+            {/* Above is a extra span to help position the label better*/}
+            {/* use peer in order to have affect on a sibling  Note: think group */}
 
         <span className="absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/2 -translate-y-1/2 bg-background text-foreground text-sm rounded-md shadow-lg whitespace-nowrap ">
           {label}

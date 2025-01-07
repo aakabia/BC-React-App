@@ -16,6 +16,13 @@ module.exports = {
         accent:"rgb(var(--accent))",
 
       },
+
+     
+      backgroundImage:{
+        "spacestar-linear": "linear-gradient(45deg, rgba(245,245,255,0.1) 0%, rgba(217,217,217,0) 100%)"
+        // linear gradient for hollow star effect 
+      },
+
       boxShadow:{
         "glass-inset": "inset 0 17px 5px -9px rgba(254, 254, 91, 0.2)",
         
@@ -27,6 +34,8 @@ module.exports = {
           "0%":{transform:"rotate(0deg)"},
           "100%":{transform:"rotate(-360deg)"}
         }
+
+        // we are using this in animation below
       },
       animation:{
         "spin-slow": "spin 40s linear infinite",
@@ -37,3 +46,6 @@ module.exports = {
   },
   plugins: [],
 };
+
+
+// All custom applications to css go in the extend code block, that I can later use somwehre in my project. 
