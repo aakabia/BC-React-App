@@ -61,7 +61,7 @@ const NavButton = ({ x, y, label, link, newTab, icon }) => {
       <Link
         href={link}
         target={newTab ? "_blank" : "_self"}
-        className="rounded-full flex items-center justify-center bg-background/20 border border-accent/30 border-solid backdrop-blur-[7px] shadow-glass-inset hover:shadow-glass-sm "
+        className="rounded-full flex items-center justify-center custom-bg "
         aria-label={label}
       >
         <span className="relative w-14 h-14 p-4 animate-spin-slow-reverse group-hover:pause hover:text-accent ">{getIcon(icon)}

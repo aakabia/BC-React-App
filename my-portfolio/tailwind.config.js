@@ -49,3 +49,4 @@ module.exports = {
 
 
 // All custom applications to css go in the extend code block, that I can later use somwehre in my project. 
+// tailwind config is used for new custom styles
