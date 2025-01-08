@@ -17,6 +17,15 @@
     .pause{
         animation-play-state: paused;
     }
+
+    .custom-bg{
+        @apply bg-background/20 border border-accent/30 border-solid backdrop-blur-[7px] shadow-glass-inset hover:shadow-glass-sm;
+    
+    }
+
+    /* if you are using the same utility classes in multiple area, use apply to group them.  */
+
+
 }
 
 /* above helps pause or nav bar*/
@@ -31,6 +40,6 @@
     }
 }
 /* Above helps move or space stars with key frames */
-
+/* Used to define and group styles under Base, Components, or Utilities layers. */
 
 
