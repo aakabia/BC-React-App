@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const ProjectLayout = ({name,description,date,link}) => {
@@ -5,7 +6,7 @@ const ProjectLayout = ({name,description,date,link}) => {
 
 
   return (
-    <div  className='flex justify-between w-full relative rounded-lg overflow-hidden p-6 custom-bg'>
+    <Link href={link} target='_blank'  className=' cursor-pointer flex justify-between w-full relative rounded-lg overflow-hidden p-6 custom-bg'>
      <div className='flex items-center justify-center space-x-2'>
         <h2 className='font-bold text-foreground '>{name} </h2>
         <p className=' font-bold text-muted'>{description}</p>
@@ -19,7 +20,7 @@ const ProjectLayout = ({name,description,date,link}) => {
         {new Date(date).toDateString()}
      </p>
         {/* date above */}
-    </div>
+    </Link>
   )
 }
 
