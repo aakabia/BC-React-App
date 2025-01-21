@@ -2,44 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@layer base{
-    :root{
-        --background:27 27 27;
-        --foreground: 225 225 225;
-        --muted: 115 115 115;
-        --accent: 254 254 91; 
-    }
+@layer base {
+  :root {
+    --background: 27 27 27;
+    --foreground: 225 225 225;
+    --muted: 115 115 115;
+    --accent: 254 254 91;
+  }
 }
 
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
 
-@layer utilities{
-    .pause{
-        animation-play-state: paused;
-    }
+  .custom-bg {
+    @apply bg-background/20 border border-accent/30 border-solid backdrop-blur-[7px] shadow-glass-inset hover:shadow-glass-sm;
+  }
 
-    .custom-bg{
-        @apply bg-background/20 border border-accent/30 border-solid backdrop-blur-[7px] shadow-glass-inset hover:shadow-glass-sm;
-    
-    }
-
-    /* if you are using the same utility classes in multiple area, use apply to group them.  */
-
-
+  /* if you are using the same utility classes in multiple area, use apply to group them.  */
 }
 
 /* above helps pause or nav bar*/
 
-
-@keyframes move{
-    0%{
-        transform:   translate(0,0) rotate(45deg);
-    }
-    100%{
-        transform:  translate(100px,100px) rotate(45deg) ;
-    }
+@keyframes move {
+  0% {
+    transform: translate(0, 0) rotate(45deg);
+  }
+  100% {
+    transform: translate(100px, 100px) rotate(45deg);
+  }
 }
 /* Above helps move or space stars with key frames */
 /* Used to define and group styles under Base, Components, or Utilities layers. */
-
-

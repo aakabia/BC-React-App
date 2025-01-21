@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-
 // use client becuase we are interacting with frontend tools like use effect and state.
 
 const createSpaceStar = () => ({
@@ -16,34 +15,28 @@ const createSpaceStar = () => ({
 const SpaceStarsBackground = () => {
   const [spaceStars, setSpaceStars] = useState([]);
 
-  // set spaceStars to a empty array first 
+  // set spaceStars to a empty array first
 
   useEffect(() => {
     const addSpaceStarPeriodically = () => {
       const newSpaceStar = createSpaceStar();
-      
-      setSpaceStars(currentSpaceStars=>
-        [...currentSpaceStars.slice(-20),
-          newSpaceStar
 
-        ]
-      );
+      setSpaceStars((currentSpaceStars) => [
+        ...currentSpaceStars.slice(-20),
+        newSpaceStar,
+      ]);
 
       // use effect to create a space star and add it to our array.
-      // .slice(-20) allows us to limit our array to first 20 items 
+      // .slice(-20) allows us to limit our array to first 20 items
       //setSpaceStars uses a callback fucntion to return a array
-
-
-
-
     };
     const interval = setInterval(addSpaceStarPeriodically, 1000);
 
-    // Above calls our addSpaceStarPeriodically every second 
+    // Above calls our addSpaceStarPeriodically every second
 
     return () => clearInterval(interval);
 
-    // above clears the interval on unmount 
+    // above clears the interval on unmount
   }, []);
 
   return (
@@ -53,17 +46,19 @@ const SpaceStarsBackground = () => {
           <div
             key={spaceStar.id}
             className="absolute  w-[10px] h-[10px] bg-spacestar-linear "
-            style={{ top: spaceStar.top, left: spaceStar.left, animation: `move ${spaceStar.animationDuration} infinite alternate`}}
-          >
-            
-          </div>
+            style={{
+              top: spaceStar.top,
+              left: spaceStar.left,
+              animation: `move ${spaceStar.animationDuration} infinite alternate`,
+            }}
+          ></div>
         );
       })}
     </div>
   );
 };
 
-// Above I create a div for each space star with the help of map 
+// Above I create a div for each space star with the help of map
 
 export default SpaceStarsBackground;
 

@@ -25,7 +25,8 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <SpaceStarsBackground/> {/* going to add spacestars background to each page so we add it to the layout page.*/ }
+        <SpaceStarsBackground />
+        {/* going to add spacestars background to each page so we add it to the layout page.*/}
       </body>
     </html>
   );
