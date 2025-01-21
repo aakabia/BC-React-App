@@ -7,7 +7,7 @@ import {
   Twitter,
   Linkedin,
   FileUser,
-} from "lucide-react"; // lucid-react for icons 
+} from "lucide-react"; // lucid-react for icons
 import Link from "next/link";
 import React from "react";
 
@@ -64,24 +64,23 @@ const NavButton = ({ x, y, label, link, newTab, icon }) => {
         className="rounded-full flex items-center justify-center custom-bg "
         aria-label={label}
       >
-        <span className="relative w-14 h-14 p-4 animate-spin-slow-reverse group-hover:pause hover:text-accent ">{getIcon(icon)}
+        <span className="relative w-14 h-14 p-4 animate-spin-slow-reverse group-hover:pause hover:text-accent ">
+          {getIcon(icon)}
           {/* Above group helps stop the spinning affect once a child or the parent is hovered */}
 
           <span className="peer bg-transparent absolute top-0 left-0 w-full h-full"></span>
-            {/* Above is a extra span to help position the label better*/}
-            {/* use peer in order to have affect on a sibling  Note: think group */}
+          {/* Above is a extra span to help position the label better*/}
+          {/* use peer in order to have affect on a sibling  Note: think group */}
 
-        <span className="absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/2 -translate-y-1/2 bg-background text-foreground text-sm rounded-md shadow-lg whitespace-nowrap ">
-          {label}
+          <span className="absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/2 -translate-y-1/2 bg-background text-foreground text-sm rounded-md shadow-lg whitespace-nowrap ">
+            {label}
+          </span>
         </span>
-
-        </span>
-
       </Link>
     </div>
   );
 };
 
-// position fixed(outer container div), relative(container div) in index.jsx and absolute(in this div) are essential in making the circle.
+// position fixed(outer container (div), relative(container div) in index.jsx and absolute(in this div) are essential in making the circle.
 
 export default NavButton;
