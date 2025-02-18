@@ -2,9 +2,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import emailJs from "@emailjs/browser";
-import { Toaster, toast } from 'sonner'
-
-
+import { Toaster, toast } from "sonner";
 
 export default function App() {
   const {
@@ -17,11 +15,10 @@ export default function App() {
   // use form for light weight form building "react-hook-form.com"
 
   const sendEmail = (params) => {
-
-    const toastId = toast.loading("Sending your meassage, please wait...")
+    const toastId = toast.loading("Sending your meassage, please wait...");
 
     // toast from sonner to render loading first when send email is invoked
-    
+
     emailJs
       .send(
         process.env.NEXT_PUBLIC_SERVICE_ID,
@@ -35,21 +32,27 @@ export default function App() {
         }
       )
       // Above is our emailJs.send confuction that we config with our env variables
+      // since we are already collecting data from the form with reack hook form we can use send instead of sendForm
+      // check docs at https://www.emailjs.com/docs/examples/reactjs/
+      
       .then(
         () => {
-          toast.success("I have recieved your message, thank you very much!",{
-            id: toastId
+          toast.success("I have recieved your message, thank you very much!", {
+            id: toastId,
           });
-          reset()
+          reset();
 
           // Above renders our success message if the email goes through
           // then clears our loading id by passing a second argument as a object
-          // last we reset the form 
+          // last we reset the form
         },
         (error) => {
-          toast.error("There was an error sending your message, please try again later!",{
-            id:toastId
-          });
+          toast.error(
+            "There was an error sending your message, please try again later!",
+            {
+              id: toastId,
+            }
+          );
         }
         // Above renders our error message if the email does not go through
       );
@@ -66,15 +69,12 @@ export default function App() {
     sendEmail(templetParams);
   };
 
-  // Above creates our params that we will use for our templet 
+  // Above creates our params that we will use for our templet
   // Then we call sendEmail and pass the templetParams as a argument
-
-
-
 
   return (
     <>
-      <Toaster richColors={true}/>
+      <Toaster richColors={true} />
       {/* make sure the toaster is outside the form */}
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -146,5 +146,5 @@ export default function App() {
   );
 }
 
-// We can add extra arguments to register to help show errors to user  
+// We can add extra arguments to register to help show errors to user
 // Check documention on https://react-hook-form.com/docs/useform/seterror for help
