@@ -2,7 +2,7 @@ import HomeBtn from "../components/HomeBtn";
 
 export default function SubPagesLayout({ children }) {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center py-32 px-16 ">
+    <main className="flex min-h-screen flex-col items-center justify-center px-4 xs:px-8 lg:px-16 py-32 ">
       <HomeBtn />
       {children}
     </main>
