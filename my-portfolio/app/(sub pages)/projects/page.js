@@ -18,7 +18,7 @@ export default function Home() {
 
       <ProjectList projects={projectsData} />
 
-      <div className=" flex items-center justify-center fixed top-20 left-20 h-screen">
+      <div className=" flex items-center justify-center fixed top-16 lg:top-20 left-1/2 lg:left-20 -translate-x-1/2 lg:-translate-x-0 -z-10 h-screen ">
         <RenderModel>
           <CrystalModel />
         </RenderModel>
