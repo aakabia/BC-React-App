@@ -14,12 +14,12 @@ export default function Contact() {
         className="-z-10 h-full w-full fixed object-fill object-center top-0 left-0" // Places the image behind other content
       />
 
-      <article className="relative w-full flex flex-col items-center justify-center space-y-8">
-        <div className=" flex flex-col items-center justify-center space-y-6 w-3/4">
+      <article className="relative w-full flex flex-col items-center justify-center py-8 sm:py-0 space-y-8">
+        <div className=" flex flex-col items-center justify-center space-y-6 w-full sm:w-3/4">
           <h1 className="text-accent font-semibold text-center text-4xl capitalize ">
             Contact the Voyager{" "}
           </h1>
-          <p className="text-center font-light text-white">
+          <p className="text-center font-light text-white text-sm xs:text-base">
             Step into the orbit of discovery and send your message across the
             stars. Whether you seek to forge alliances, unlock the secrets of
             distant galaxies, or simply share tales of cosmic wonder, your words
