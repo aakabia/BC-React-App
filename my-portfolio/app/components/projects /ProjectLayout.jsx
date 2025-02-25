@@ -1,11 +1,23 @@
 import Link from "next/link";
 import React from "react";
+import {motion } from "motion/react";
+
+
+
+
+const item = {
+  hidden: { opacity: 0, y:100 },
+  show: { opacity: 1, y:0 }
+}
+
+const NavLink = motion.create(Link)
 
 const ProjectLayout = ({ name, description, date, link }) => {
   // ProjectLayout component takes in four props which are also properties of our projects.
 
   return (
-    <Link
+    <NavLink
+      variants={item}
       href={link}
       target="_blank"
       className="text-sm md:text-base cursor-pointer flex justify-between w-full relative rounded-lg overflow-hidden p-4 md:p-6 custom-bg"
@@ -23,7 +35,7 @@ const ProjectLayout = ({ name, description, date, link }) => {
         {new Date(date).toDateString()}
       </p>
       {/* date above */}
-    </Link>
+    </NavLink>
   );
 };
 

@@ -12,6 +12,19 @@ import Link from "next/link";
 import React from "react";
 import ResponsiveComponent from "../ResponsiveComponent";
 import clsx from "clsx";
+import {motion } from "motion/react";
+
+const item = {
+  hidden: { scale: 0 },
+  show: { scale: 1 }
+}
+// no need for inital and animate in child because the parent takes car of the display.
+// scale determins the size of the item on hidden or show 
+
+const NavLink = motion.create(Link)
+// create a new NavLink with props of Link and props from motion 
+
+
 
 const getIcon = (icon) => {
   switch (icon) {
@@ -63,12 +76,15 @@ const NavButton = ({ x, y, label, link, newTab, icon, labelDirection="right" }) 
             className=" absolute z-50 cursor-pointer"
             style={{ transform: `translate(${x},${y}` }}
           >
-            <Link
+            <NavLink
+              variants ={item}
+              
               href={link}
               target={newTab ? "_blank" : "_self"}
               className="rounded-full flex items-center justify-center custom-bg "
               aria-label={label}
             >
+              {/*Above we use our custom NavLink and can pass variants as a prop*/}
               <span className="relative w-14 h-14 p-4 animate-spin-slow-reverse group-hover:pause hover:text-accent ">
                 {getIcon(icon)}
                 {/* Above group helps stop the spinning affect once a child or the parent is hovered */}
@@ -81,14 +97,15 @@ const NavButton = ({ x, y, label, link, newTab, icon, labelDirection="right" }) 
                   {label}
                 </span>
               </span>
-            </Link>
+            </NavLink>
           </div>
         ) : (
           <div
             className=" w-fit z-50 cursor-pointer"
             
           >
-            <Link
+            <NavLink
+              variants ={item}
               href={link}
               target={newTab ? "_blank" : "_self"}
               className="rounded-full flex items-center justify-center custom-bg "
@@ -106,7 +123,7 @@ const NavButton = ({ x, y, label, link, newTab, icon, labelDirection="right" }) 
                   {label}
                 </span>
               </span>
-            </Link>
+            </NavLink>
           </div>
         );
       }}

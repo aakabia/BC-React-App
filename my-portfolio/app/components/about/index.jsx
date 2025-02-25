@@ -1,21 +1,8 @@
-import clsx from "clsx";
 import React from "react";
+import ItemLayout from "./ItemLayout";
 
-const ItemLayout = ({ children, className }) => {
-  return (
-    <div
-      className={clsx(
-        "custom-bg p-6 sm:p-8 rounded-xl flex items-center justify-center space-y-7",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
-};
 
-// Above is a reuseable component that returns a div with default css for our layout and its children
-// we use the clsx package to add additional classNames passed in
+
 
 const AboutDetails = () => {
   return (
