@@ -3,6 +3,25 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import emailJs from "@emailjs/browser";
 import { Toaster, toast } from "sonner";
+import {motion } from "motion/react";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+      delayChildren:0.2,
+    },
+  },
+};
+
+const item = {
+  hidden: { scale: 0 },
+  show: { scale: 1 }
+}
+
+
 
 export default function App() {
   const {
@@ -76,11 +95,15 @@ export default function App() {
     <>
       <Toaster richColors={true} />
       {/* make sure the toaster is outside the form */}
-      <form
+      <motion.form
+        variants={container} 
+        initial="hidden"
+        animate={"show"}
         onSubmit={handleSubmit(onSubmit)}
         className="max-w-md w-full flex flex-col items-center justify-center space-y-7"
       >
-        <input
+        <motion.input
+         variants={item}
           type="text"
           placeholder="name "
           {...register("name", {
@@ -90,7 +113,7 @@ export default function App() {
               message: "Name should be atleast 3 charcters long.",
             },
           })}
-          className="w-full rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg  text-white  "
+          className="w-full rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-accent/50 custom-bg  text-white"
         />
 
         {errors.name && (
@@ -101,7 +124,8 @@ export default function App() {
 
         {/* Above, is a example of conditional rendering if there is a errors.name */}
 
-        <input
+        <motion.input
+          variants={item}
           type="email"
           placeholder="email "
           {...register("email", { required: "This field is required" })}
@@ -114,7 +138,8 @@ export default function App() {
           </span>
         )}
 
-        <textarea
+        <motion.textarea
+          variants={item}
           {...register("message", {
             required: "This field is required",
             maxLength: {
@@ -136,12 +161,13 @@ export default function App() {
           </span>
         )}
 
-        <input
+        <motion.input
+         variants={item}
           value="Send your message!"
           className="px-10 py-4 rounded-md shadow-lg bg-background text-white border-accent/30 border-solid hover:shadow-glass-sm backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-accent/50 cursor-pointer capitalize "
           type="submit"
         />
-      </form>
+      </motion.form>
     </>
   );
 }

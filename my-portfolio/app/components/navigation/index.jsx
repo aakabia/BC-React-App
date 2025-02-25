@@ -4,6 +4,17 @@ import { BtnList } from "@/app/data";
 import NavButton from "./NavButton";
 import useScreenSize from "../hooks/useScreenSize";
 import ResponsiveComponent from "../ResponsiveComponent";
+import {motion } from "motion/react";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.3,
+    },
+  },
+};
 
 const Navigation = () => {
   const angleIncrement = 360 / BtnList.length; // get the angle for each element to be placed in the circle.
@@ -12,14 +23,14 @@ const Navigation = () => {
   const isLarge = size >= 1024; // test if screen width greater
   const ismedium = size >= 768; // test if screen width greater
 
-  console.log(size);
+  //console.log(size);
 
   return (
     <div className=" fixed z-50 h-screen w-full flex items-center justify-center">
       <ResponsiveComponent>
         {({ size }) => {
           return size && size >= 480 ? (
-            <div className=" w-max flex items-center justify-center relative text-white animate-spin-slow hover:pause group">
+            <motion.div variants={container} initial="hidden" animate={"show"} className=" w-max flex items-center justify-center relative text-white animate-spin-slow hover:pause group">
               {" "}
               {/* group is used to help with spinning affect for navitgation*/}
               {BtnList.map((btn, index) => {
@@ -36,20 +47,20 @@ const Navigation = () => {
                 //console.log(angleRad,radius,x,y)
                 return <NavButton key={btn.label} x={x} y={y} {...btn} />;
               })}
-            </div>
+            </motion.div>
           ) : (
             // Above renders when the width is above 480 px
             <>
-              <div className=" w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-start xs:items-center justify-center relative text-white group">
+              <motion.div variants={container} initial="hidden" animate={"show"}  className=" w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-start xs:items-center justify-center relative text-white group">
                 {" "}
                 {BtnList.slice(0, BtnList.length / 2).map((btn, index) => {
                   return <NavButton key={btn.label} x={0} y={0} {...btn} />;
                 })}
-              </div>
+              </motion.div>
 
               {/* Above we split the list in half and grab the first half in order to position it at the start of the div */}
 
-              <div className=" w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-end xs:items-center justify-center relative text-white group">
+              <motion.div variants={container} initial="hidden" animate={"show"}  className=" w-full px-2.5 xs:p-0 xs:w-max flex flex-col space-y-4 items-end xs:items-center justify-center relative text-white group">
                 {" "}
                 {BtnList.slice(BtnList.length / 2, BtnList.length).map(
                   (btn, index) => {
@@ -64,7 +75,7 @@ const Navigation = () => {
                     );
                   }
                 )}
-              </div>
+              </motion.div>
               {/* Above we split the list in half and grab the second half in order to position it at the end of the div */}
             </>
             // Above, renders when the screen size is below 480 px
