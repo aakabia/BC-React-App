@@ -1,13 +1,23 @@
 import Image from "next/image";
 import bg from "../../../public/images/about.png";
 import RenderModel from "../../components/RenderModel";
-import HelmetModel from "@/app/components/models/helmet";
+//import HelmetModel from "@/app/components/models/helmet";
 import AboutDetails from "@/app/components/about";
+import dynamic from "next/dynamic";
+
+const HelmetModel = dynamic(() => import("@/app/components/models/helmet"), {
+  ssr: false,
+});
+
+// dynamic import of our model
+// ssr: false sets server side rendering to false
 
 export default function Home() {
   return (
     <>
       <Image
+        priority
+        sizes="100vw"
         src={bg}
         alt="Background Image"
         quality={100} // Optional: ensures high-quality rendering
@@ -23,7 +33,9 @@ export default function Home() {
 
       <div className="relative w-full h-screen flex flex-col items-center justify-center">
         <div className="absolute flex flex-col items-center text-center top-1/2 sm:top-[60%] left-1/2 -translate-y-1/2 -translate-x-1/2">
-          <h1 className="font-bold text-4xl xs:text-5xl  lg:text-6xl text-accent">Aziz A. Kabia</h1>
+          <h1 className="font-bold text-4xl xs:text-5xl  lg:text-6xl text-accent">
+            Aziz A. Kabia
+          </h1>
           <p className="font-light text-foreground text-base ">
             Meet the space traveler behind this portfolio{" "}
           </p>

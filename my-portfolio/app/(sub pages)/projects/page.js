@@ -2,13 +2,23 @@ import Image from "next/image";
 import bg from "../../../public/images/projectsbg.png";
 import ProjectList from "../../components/projects ";
 import { projectsData } from "../../data";
-import CrystalModel from "../../components/models/crystal";
+//import CrystalModel from "../../components/models/crystal";
 import RenderModel from "../../components/RenderModel";
+import dynamic from "next/dynamic";
+
+const CrystalModel = dynamic(() => import("../../components/models/crystal"), {
+  ssr: false,
+});
+
+// dynamic import of our model
+// ssr: false sets server side rendering to false
 
 export default function Home() {
   return (
     <>
       <Image
+        priority
+        sizes="100vw"
         src={bg}
         alt="Background Image"
         quality={100} // Optional: ensures high-quality rendering
