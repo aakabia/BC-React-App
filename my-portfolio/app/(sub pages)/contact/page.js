@@ -2,11 +2,12 @@ import Image from "next/image";
 import bg from "../../../public/images/contact.png";
 import Form from "@/app/components/contact/Form";
 
-
 export default function Contact() {
   return (
     <>
       <Image
+        priority
+        sizes="100vw"
         src={bg}
         alt="Background Image"
         quality={100} // Optional: ensures high-quality rendering
@@ -28,8 +29,7 @@ export default function Contact() {
             the transmission of knowledge that only the stars can answer.
           </p>
         </div>
-        <Form/>
-        
+        <Form />
       </article>
     </>
   );
