@@ -3,8 +3,21 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
+
+// Detect whether the app is in production (deployed) or development (local)
+const basePath = process.env.NODE_ENV === 'production'
+  ? '/BC-React-App/'  // Replace 'my-repo-name' with your actual repository name
+  : '/';  // Local development path
+
+const modelPath = `${basePath}models/astro-transformed.glb`; // Construct the full path to the model
+
+
+
+
+
+
 export default function SpaceModel(props) {
-  const { nodes, materials } = useGLTF("/models/astro-transformed.glb"); // load our glb file from our models folder located in the public directory
+  const { nodes, materials } = useGLTF(modelPath); // load our glb file from our models folder located in the public directory
   const modelRef = useRef(); // to maintain model reference without re rendering.
   useFrame((state, delta, xrFrame) => {
     if (modelRef.current) {
@@ -33,7 +46,7 @@ export default function SpaceModel(props) {
 
 // Above I export a function that defines a React component that loads and renders a 3D model in a Three.js scene using @react-three/drei and @react-three/fiber.
 
-useGLTF.preload("/models/astro-transformed.glb");
+useGLTF.preload(modelPath);
 
 //  Above, Preloads the GLTF file to ensure faster rendering when the model is used.
 

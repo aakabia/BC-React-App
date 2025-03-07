@@ -3,8 +3,20 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
+
+// Detect whether the app is in production (deployed) or development (local)
+const basePath = process.env.NODE_ENV === 'production'
+  ? '/BC-React-App/'  // Replace with your actual repository name
+  : '/';  // Local development path
+
+const modelPath = `${basePath}models/crystal-transformed.glb`; // Construct the full path to the model
+
+
+
+
+
 export default function CrystalModel(props) {
-  const { nodes, materials } = useGLTF("/models/crystal-transformed.glb");
+  const { nodes, materials } = useGLTF(modelPath);
   const modelref = useRef();
 
   useFrame(() => {
@@ -26,6 +38,6 @@ export default function CrystalModel(props) {
   );
 }
 
-useGLTF.preload("/models/crystal-transformed.glb");
+useGLTF.preload(modelPath);
 
 // Above code generated from https://github.com/pmndrs/gltfjsx for our crystal model.
