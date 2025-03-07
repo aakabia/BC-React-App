@@ -22,28 +22,17 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Setup Node.js ⚙️
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      - name: Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧
+        uses: ./.github/workflows/setup-node
 
-      - name: Cache dependencies for my-portfolio
-        id: cache_my-portfolio
-        uses: actions/cache@v3
+      - name: Setup Pages ⚙️
+        uses: actions/configure-pages@v4
         with:
-          path: my-portfolio/node_modules
-          key: my-portfolio-node-modules-${{ hashFiles('my-portfolio/package-lock.json') }}
-        
-      - name: Install dependencies for my-portfolio
-        run: |
-          cd my-portfolio
-          npm ci
-        if: steps.cache_my-portfolio.outputs.cache-hit != 'true'
+          static_site_generator: next
 
       - name: Install dependencies for Challenge15
-        run: |
-          cd Challenge15
-          npm install
+        run: npm install
+        if: steps.cache_my-portfolio.outputs.cache-hit != 'true'
 
       - name: Build with Next.js 🏗️
         run: |
