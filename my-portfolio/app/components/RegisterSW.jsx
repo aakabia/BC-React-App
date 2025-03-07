@@ -10,7 +10,7 @@ export default function RegisterSW() {
       // Register the service worker after the page has loaded
       const registerServiceWorker = async () => {
         try {
-          const registration = await navigator.serviceWorker.register("/sw.js");
+          const registration = await navigator.serviceWorker.register("/BC-React-App/sw.js");
           console.log(
             "Service Worker registered with scope: ",
             registration.scope
