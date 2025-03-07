@@ -2,7 +2,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import SpaceStarsBackground from "./components/SpaceStarsBackground";
 import Sound from "./components/sound";
-import ServiceWorkerRegistration from "@/public/ServiceWorkerRegistration";
+import RegisterSW from "./components/RegisterSW";
+
 
 
 const geistSans = localFont({
@@ -38,8 +39,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <RegisterSW/>
+        
         {children}
-        <ServiceWorkerRegistration/>
 
 
         <SpaceStarsBackground />
