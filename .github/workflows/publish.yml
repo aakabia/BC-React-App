@@ -25,14 +25,17 @@ jobs:
       - name: Setup Node.js ⚙️ - Cache dependencies ⚡ - Install dependencies 🔧
         uses: ./.github/workflows/setup-node
 
+
+      - name: Install dependencies for my-portfolio
+        run: |
+          cd my-portfolio
+          npm install
+        if: steps.cache_my-portfolio.outputs.cache-hit != 'true'
+
       - name: Setup Pages ⚙️
         uses: actions/configure-pages@v4
         with:
           static_site_generator: next
-
-      - name: Install dependencies for Challenge15
-        run: npm install
-        if: steps.cache_my-portfolio.outputs.cache-hit != 'true'
 
       - name: Build with Next.js 🏗️
         run: |
