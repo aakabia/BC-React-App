@@ -8,7 +8,7 @@ export default function ServiceWorkerRegistration() {
       const basePath =
         process.env.NODE_ENV === "production" ? "/BC-React-App" : ""; // Set the base path for production
       navigator.serviceWorker
-        .register(`${basePath}/service-worker.js`) // Dynamically set the correct path for both environments
+        .register(`${basePath}/sw.js`) // Dynamically set the correct path for both environments
         .then((registration) => {
           console.log(
             "Service Worker registered with scope: ",
