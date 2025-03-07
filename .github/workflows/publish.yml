@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies in my-portfolio
         run: |
           cd my-portfolio
-          npm ci
+          npm install
         if: steps.cache_dependencies.outputs.cache-hit != 'true'
 
       - name: Build with Next.js 🏗️
