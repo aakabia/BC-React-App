@@ -29,6 +29,12 @@ jobs:
         uses: actions/configure-pages@v4
         with:
           static_site_generator: next
+      
+      - name: Install dependencies in my-portfolio
+        run: |
+          cd my-portfolio
+          npm ci
+        if: steps.cache_dependencies.outputs.cache-hit != 'true'
 
       - name: Build with Next.js 🏗️
         run: |
