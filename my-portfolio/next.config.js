@@ -15,7 +15,7 @@ const nextConfig = {
       config.plugins.push(
         new GenerateSW({
           // Make sure this file exists and contains the required config
-          globDirectory: "out/", // Location of build output
+          directoryIndex: "out/", // Location of build output
           globPatterns: ["**/*.{html,js,css,png,jpg,svg,woff2}"], // Match assets you want to cache
           swDest: "public/sw.js", // Output location for service worker
           runtimeCaching: [
