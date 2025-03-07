@@ -5,6 +5,18 @@ import { motion } from "motion/react";
 import { Volume2, VolumeX } from "lucide-react";
 import { createPortal } from "react-dom";
 
+
+
+
+const basePath = process.env.NODE_ENV === 'production'
+  ? '/BC-React-App/'  // Use your repository name in production
+  : '/';               // Use root path in development
+
+const audioPath = `${basePath}audio/spaceAudio.mp3`;
+
+
+
+
 const Modal = ({ onClose, toggle }) => {
   // create modal component using createPortal that takes two args.
   return createPortal(
@@ -105,7 +117,7 @@ const Sound = () => {
       {/* show our modal depending on value of showModal */}
 
       <audio ref={audioRef} loop>
-        <source src={"/audio/spaceAudio.mp3"} type="audio/mpeg" />
+        <source src={audioPath} type="audio/mpeg" />
         your browser does not support the audio element
       </audio>
       <motion.button
